@@ -63,7 +63,7 @@ function validate(answers: Answers) {
   if (answers.name.trim().length < 2) errors.name = "Informe seu nome.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(answers.email.trim())) errors.email = "Informe um e-mail válido.";
   if (answers.phone.replace(/\D/g, "").length < 10) errors.phone = "Informe seu WhatsApp com DDD.";
-  if (answers.instagram.trim() && !/^@?[A-Za-z0-9._]{1,30}$/.test(answers.instagram.trim())) errors.instagram = "Informe um @ válido.";
+  if (!/^@?[A-Za-z0-9._]{1,30}$/.test(answers.instagram.trim())) errors.instagram = "Informe seu @ do Instagram.";
   return errors;
 }
 
@@ -233,7 +233,7 @@ export function LeadForm() {
         <label className="field" htmlFor="name"><span>Nome completo <b>*</b></span><input id="name" name="name" autoComplete="name" placeholder="Seu nome completo" maxLength={180} value={answers.name} onChange={event => update("name", event.target.value)} aria-invalid={!!errors.name} /><small className="field-error">{errors.name}</small></label>
         <label className="field" htmlFor="email"><span>E-mail <b>*</b></span><input id="email" name="email" type="email" autoComplete="email" placeholder="voce@exemplo.com" maxLength={240} value={answers.email} onChange={event => update("email", event.target.value)} aria-invalid={!!errors.email} /><small className="field-error">{errors.email}</small></label>
         <label className="field" htmlFor="phone"><span>WhatsApp com DDD <b>*</b></span><input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" value={answers.phone} onChange={event => update("phone", formatPhone(event.target.value))} aria-invalid={!!errors.phone} /><small className="field-error">{errors.phone}</small></label>
-        <label className="field" htmlFor="instagram"><span>Qual o @ do Instagram? <em>(opcional)</em></span><input id="instagram" name="instagram" autoCapitalize="none" autoComplete="off" spellCheck={false} placeholder="@seuperfil" maxLength={120} value={answers.instagram} onChange={event => update("instagram", event.target.value)} aria-invalid={!!errors.instagram} /><small className="field-error">{errors.instagram}</small></label>
+        <label className="field" htmlFor="instagram"><span>Qual o @ do Instagram? <b>*</b></span><input id="instagram" name="instagram" autoCapitalize="none" autoComplete="off" spellCheck={false} placeholder="@seuperfil" maxLength={120} value={answers.instagram} onChange={event => update("instagram", event.target.value)} aria-invalid={!!errors.instagram} /><small className="field-error">{errors.instagram}</small></label>
       </div>
       <div className="consent-block"><input id="whatsapp-consent" type="checkbox" checked={answers.whatsappConsent} onChange={event => update("whatsappConsent", event.target.checked)} /><label htmlFor="whatsapp-consent">{WHATSAPP_MARKETING_CONSENT_TEXT}</label></div>
       <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" value={answers.website} onChange={event => update("website", event.target.value)} /></label>

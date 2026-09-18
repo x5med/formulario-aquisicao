@@ -41,9 +41,9 @@ export async function POST(request: Request) {
   if (lead.status === "completed" && (
     lead.name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)
     || lead.phone.length < 10 || lead.phone.length > 13
-    || (lead.instagram.length > 0 && !/^[A-Za-z0-9._]{1,30}$/.test(lead.instagram))
+    || !/^[A-Za-z0-9._]{1,30}$/.test(lead.instagram)
     || typeof body.whatsappConsent !== "boolean" || !/^https?:\/\//i.test(lead.pageUrl)
-  )) return NextResponse.json({ error: "Revise nome, e-mail e WhatsApp." }, { status: 400 });
+  )) return NextResponse.json({ error: "Revise nome, e-mail, WhatsApp e Instagram." }, { status: 400 });
 
   try {
     const leadId = await syncLeadToMetrics(lead);

@@ -1,6 +1,6 @@
 # 27 Avenidas para Aquisição de Clientes
 
-Formulário do ebook gratuito da X5 Med. O visitante informa nome, e-mail e WhatsApp; Instagram e autorização para outras mensagens pelo WhatsApp são opcionais. O ebook fica disponível para download após o cadastro, e o pedido de envio pelo WhatsApp é registrado para a equipe.
+Formulário do ebook gratuito da X5 Med. O visitante informa nome, e-mail, WhatsApp e Instagram; a autorização para outras mensagens pelo WhatsApp é opcional. O ebook fica disponível para download após o cadastro, e o pedido de envio pelo WhatsApp é registrado para a equipe.
 
 ## Captura progressiva
 
